@@ -17,7 +17,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 import javafx.scene.control.ProgressBar;
-
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.application.Application;
 /**
  * FXML Controller class
  *
@@ -28,15 +30,7 @@ public class HelloFXController implements Initializable {
       private static String filepath="C:\\\\Users\\\\Galaxy Yang\\\\Desktop\\\\WHETS.objcov";
       private  ArrayList<String> a;
      
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb){
-        // TODO
-          a=new ArrayList<String>();
-       }
-    
+  
     @FXML 
     private TextField ins_c;
     @FXML 
@@ -55,6 +49,29 @@ public class HelloFXController implements Initializable {
     private ProgressBar p_i;
     @FXML 
     private ProgressBar p_c;
+    
+    private JavaFXApplication1 application;
+    
+      /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb){
+        // TODO
+          a=new ArrayList<String>();
+         
+          try{
+          getContext();
+          this.insertContext();}
+          catch(Exception e)
+          {
+              e.printStackTrace();
+          }
+       }
+    
+    
+    
+    
     
     @FXML 
     protected void handleSubmitButtonAction(ActionEvent event)throws IOException {
@@ -123,6 +140,9 @@ public class HelloFXController implements Initializable {
         }
         
     }
-
+   
+    public void setApp(JavaFXApplication1 application){
+        this.application=application;
+    }
 
 }

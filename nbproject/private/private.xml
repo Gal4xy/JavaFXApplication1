@@ -3,15 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Galaxy%20Yang/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/JavaFXApplication1.java</file>
-            <file>file:/C:/Users/Galaxy%20Yang/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/HelloFX.fxml</file>
-            <file>file:/C:/Users/Galaxy%20Yang/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/HelloFXController.java</file>
-            <file>file:/C:/Users/Galaxy%20Yang/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/index.fxml</file>
-            <file>file:/C:/Users/Galaxy%20Yang/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/WelcomeController.java</file>
-            <file>file:/C:/Users/Galaxy%20Yang/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/Welcome.fxml</file>
-            <file>file:/C:/Users/Galaxy%20Yang/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/IndexController.java</file>
-            <file>file:/C:/Users/Galaxy%20Yang/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/StaticData.java</file>
-            <file>file:/C:/Users/Galaxy%20Yang/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/test.java</file>
+            <file>file:/C:/Users/Galaxy%20Yang/Documents/NetBeansProjects/CoverageReport/src/javafxapplication1/LineCoverageSrcController.java</file>
+            <file>file:/C:/Users/Galaxy%20Yang/Documents/NetBeansProjects/CoverageReport/src/javafxapplication1/IndexsrcController.java</file>
+            <file>file:/C:/Users/Galaxy%20Yang/Documents/NetBeansProjects/CoverageReport/src/javafxapplication1/StaticData.java</file>
         </group>
     </open-files>
 </project-private>

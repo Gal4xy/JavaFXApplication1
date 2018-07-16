@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javafxapplication1;
+
 
 import java.util.List;
 import java.util.ArrayList;
+import  javafxapplication1.StaticData;
 /**
  *
  * @author Galaxy Yang
@@ -29,7 +30,7 @@ public class test {
        e.printStackTrace();
     }
         sd.calculate();
-        System.out.println(" result ee "+sd.getProgress()+" date "+sd.getDate());
+        System.out.println(" result ee "+sd.getProgressLine()+" date "+sd.getDate());
         
         
     }

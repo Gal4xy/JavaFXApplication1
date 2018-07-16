@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: white; -fx-border-color: #4f9d9d; -fx-border-width: 4px;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.IndexController">
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: white; -fx-border-color: #4f9d9d; -fx-border-width: 4px;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.IndexsrcController">
     <stylesheets>
         <URL value="@index.css" />
     </stylesheets>

@@ -5,35 +5,28 @@
  */
 package javafxapplication1;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-
-import java.io.*;
-import javafx.scene.control.ProgressBar;
-import javafx.fxml.Initializable;
-import javafx.stage.Stage;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
  * @author Galaxy Yang
  */
-public class IndexController implements Initializable {
+public class IndexsrcController implements Initializable {
 
-     private static final String filepath="C:\\\\Users\\\\Galaxy Yang\\\\Desktop\\\\WHETS.objcov";
-    
-     @FXML 
+   private static String filepath="C:\\\\Users\\\\Galaxy Yang\\\\Desktop\\\\WHETS.srccov";
+   
+    @FXML 
     private TextField testName;
     @FXML 
     private TextField dateT;
@@ -75,17 +68,19 @@ public class IndexController implements Initializable {
     public void setApp(Coverage application){
         this.application=application;
     }
-    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        try{
-             StaticData sd=new StaticData();
-             sd.getContext(filepath);
-             sd.calculate();
+        
+        StaticData sd=new StaticData();
+      try{  
+      //read
+        sd.getContext(filepath);
+        
+         sd.calculate();
              
               linebar.setStyle("-fx-fill:red");
              
@@ -116,8 +111,8 @@ public class IndexController implements Initializable {
               totalf.setText(sd.getTotalFNumber());
               coverageL.setText(sd.getProgressLineStr());
               coveragef.setText(sd.getProgressfStr());
-              testName.setText("001");
-              fileName.setText("whels.obj");
+              testName.setText("002");
+              fileName.setText("whels.src");
               
          
         XYChart.Series series1 = new XYChart.Series();
@@ -131,34 +126,27 @@ public class IndexController implements Initializable {
         series2.getData().add(new XYChart.Data(uc,(1-sd.getProgressF())));
         
        fragmentbar.getData().add(series2);
-           
-        }
-          catch(Exception e){
-            e.printStackTrace();
-        }
+      
+      }
+      
+      catch(Exception e){
+          e.printStackTrace();
+      }
     }    
     
+    
      @FXML 
+    protected void handleSubmitButtonAction(ActionEvent event)throws IOException {
+        if(application!=null){
+           application.gotoLCSrc();
+       }
+    }
+    
+    
+      @FXML 
     protected void handleReturnButtonAction(ActionEvent event) {
        if(application!=null){
            application.gotomain();
        }
     }
-    
-    @FXML 
-    protected void handleSubmitButtonAction(ActionEvent event)throws IOException {
-        if(application!=null){
-           application.gotoLC();
-       }
-    }
-    
-    
-    public void initLBar(Double complete){
-        XYChart.Series series1 = new XYChart.Series();       
-        series1.getData().add(new XYChart.Data(complete,c));
-        series1.getData().add(new XYChart.Data((1-complete),uc));
-    }
- }
-
-
-
+}

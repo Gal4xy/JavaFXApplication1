@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
@@ -17,21 +18,44 @@
       <Separator id="hseperate2" layoutX="5.0" layoutY="180.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="3.0" prefWidth="790.0" style="-fx-backgroud-radius: 2px; -fx-background-color: #4f9d9d;" />
       <AnchorPane id="lowPane" layoutX="16.0" layoutY="191.0" prefHeight="250.0" prefWidth="773.0" style="-fx-background-color: white;">
          <children>
-            <ProgressBar fx:id="pbar1" layoutX="191.0" layoutY="44.0" prefHeight="27.0" prefWidth="184.0" progress="0.0" />
+            <ProgressBar fx:id="pbar1" layoutX="191.0" layoutY="44.0" prefHeight="27.0" prefWidth="176.0" progress="0.0" />
             <Label layoutX="46.0" layoutY="9.0" text="文件名">
                <font>
                   <Font size="16.0" />
                </font></Label>
             <TextField fx:id="fileName" layoutX="29.0" layoutY="44.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="131.0" />
-            <Label layoutX="229.0" layoutY="9.0" text="覆盖率">
+            <Label layoutX="229.0" layoutY="9.0" text="语句覆盖率">
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Button layoutX="481.0" layoutY="43.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="65.0" text="详细" onAction="#handleSubmitButtonAction">
+            <Button layoutX="684.0" layoutY="44.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="27.0" prefWidth="65.0" text="详细">
                <font>
                   <Font size="12.0" />
                </font></Button>
-            <ProgressIndicator fx:id="pi" layoutX="399.0" layoutY="24.0" prefHeight="65.0" prefWidth="36.0" progress="0.55" />
+            <Label layoutX="489.0" layoutY="12.0" text="分支覆盖率">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ProgressBar fx:id="pbar2" layoutX="445.0" layoutY="44.0" prefHeight="27.0" prefWidth="164.0" progress="0.0" />
+            <BarChart fx:id="linebar" categoryGap="40.0" layoutX="46.0" layoutY="97.0" prefHeight="140.0" prefWidth="229.0" style="-fx-fill: red; -fx-stroke: black;" titleSide="BOTTOM">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" style="-fx-color: #CAFFFF;" />
+              </xAxis>
+              <yAxis>
+                  <NumberAxis side="LEFT" />       
+              </yAxis>
+            </BarChart>
+            <BarChart fx:id="fragmentbar" categoryGap="40.0" layoutX="405.0" layoutY="97.0" prefHeight="140.0" prefWidth="229.0">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" />
+               </yAxis>
+            </BarChart>
+            <TextField fx:id="pi" layoutX="377.0" layoutY="44.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="56.0" />
+            <TextField fx:id="pf" layoutX="615.0" layoutY="44.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="56.0" />
          </children>
       </AnchorPane>
       <Label layoutX="315.0" layoutY="21.0" prefHeight="33.0" prefWidth="355.0" text="覆盖率分析报告">
@@ -49,25 +73,25 @@
             <Font size="16.0" />
          </font></Label>
       <TextField fx:id="dateT" layoutX="116.0" layoutY="131.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="117.0" />
-      <Label layoutX="404.0" layoutY="105.0" text="行数：">
+      <Label layoutX="368.0" layoutY="108.0" text="指令覆盖率：">
          <font>
             <Font size="16.0" />
          </font></Label>
-      <Label layoutX="405.0" layoutY="139.0" text="函数：">
+      <Label layoutX="368.0" layoutY="140.0" text="分支覆盖率：">
          <font>
             <Font size="16.0" />
          </font></Label>
-      <Label layoutX="464.0" layoutY="77.0" text="运行">
+      <Label layoutX="464.0" layoutY="77.0" text="指令行数">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="540.0" layoutY="77.0" text="指令行数">
+      <Label layoutX="540.0" layoutY="77.0" text="运行行数">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="633.0" layoutY="77.0" text="覆盖率">
+      <Label layoutX="619.0" layoutY="77.0" text="语句覆盖率">
          <font>
             <Font size="14.0" />
          </font>
@@ -75,8 +99,15 @@
       <TextField fx:id="hitLine" layoutX="464.0" layoutY="103.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="56.0" />
       <TextField fx:id="totalLine" layoutX="540.0" layoutY="103.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="56.0" />
       <TextField fx:id="coverageL" layoutX="626.0" layoutY="103.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="56.0" />
-      <TextField layoutX="464.0" layoutY="137.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="56.0" />
-      <TextField layoutX="540.0" layoutY="137.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="56.0" />
-      <TextField layoutX="626.0" layoutY="137.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="56.0" />
+      <TextField fx:id="totalf" layoutX="464.0" layoutY="137.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="56.0" />
+      <TextField fx:id="hitf" layoutX="540.0" layoutY="137.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="56.0" />
+      <TextField fx:id="coveragef" layoutX="626.0" layoutY="137.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="56.0" />
+      <Label layoutX="152.0" layoutY="429.0" text="语句覆盖率" />
+      <Label layoutX="506.0" layoutY="429.0" text="分支覆盖率" />
+      <Button fx:id="button_return" layoutX="709.0" layoutY="440.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#handleReturnButtonAction" prefHeight="27.0" prefWidth="65.0" text="返回">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

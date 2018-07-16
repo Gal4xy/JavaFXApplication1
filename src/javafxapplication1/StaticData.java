@@ -10,9 +10,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
-import java.lang.ArithmeticException;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
+import java.util.HashMap;
 
 
 /**
@@ -21,29 +23,66 @@ import java.util.Date;
  */
 public class StaticData {
     
-    private static final String filepath="C:\\\\Users\\\\Galaxy Yang\\\\Desktop\\\\WHETS.objcov";
-    private double progress=0.5;
-    private ArrayList<String> list;
+   
+    private double progressLine=0.5;
+    private double progressF=0.5;
+    private List<String> list;
+    private Map<String,Integer> info;
     
     
     public StaticData(){
         list=new ArrayList<String>();
+        info=new HashMap<String,Integer>();
     }
     
-    public double getProgress(){
-        Double dou=(double)Math.round(progress*100)/100;
+    public double getProgressLine(){
+        Double dou=(double)Math.round(progressLine*100)/100;
         return dou;
     }
+    
+    public String getProgressLineStr(){
+        
+        NumberFormat nf=NumberFormat.getPercentInstance();
+        nf.setMaximumFractionDigits(1);
+        String s=nf.format(this.progressLine);
+         return  s;
+    }
+    
+     public String getProgressfStr(){
+        
+        NumberFormat nf=NumberFormat.getPercentInstance();
+        nf.setMaximumFractionDigits(1);
+        String s=nf.format(this.progressF);
+         return  s;
+    }
+    
+    public double getProgressF(){
+         Double dou=(double)Math.round(progressF*100)/100;
+          return dou;
+    }
+    
     // read
-    public void getContext() throws IOException{
+    public void getContext(String filepath) throws IOException{
      if(list!=null){
         File f=new File(filepath);
        BufferedReader br=new BufferedReader(new FileReader(f));
        String s;
        while((s=br.readLine())!=null){
            list.add(s);
-       } 
-        System.out.println(list.size());
+            if(s.length()>5){
+               if(s.charAt(2)=='*'){
+                     System.out.println("SUCCESS-SPLIT");
+                   String[] infos=s.split("\\*");
+                           if(infos!=null){
+                                   info.put(infos[0],Integer.parseInt(infos[2]));
+                           }
+                           else{
+                               System.out.println("Error_StringsplitNUll");
+                           }
+               }
+            }
+           } 
+        System.out.println(" SIZE "+list.size()+" MAP "+info.keySet().size());
      }
      else{
            System.out.println("Error_listEmpty");
@@ -57,8 +96,12 @@ public class StaticData {
             String[] lineData=list.get(0).split("#");
             Double totalLine=Double.parseDouble(lineData[0]);
             Double hitLine=Double.parseDouble(lineData[1]);
-              if(totalLine!=0.0){ 
-              progress=hitLine/totalLine;}
+            String[] fData=list.get(1).split("#");
+            Double totalF=Double.parseDouble(fData[0]);
+            Double hitf=Double.parseDouble(fData[1]);
+              if(totalLine!=0.0&&totalF!=0){ 
+              progressLine=hitLine/totalLine;
+              progressF=hitf/totalF;}
               else{
                   System.out.println("Error_TotalLineZero"); 
               }
@@ -92,5 +135,22 @@ public class StaticData {
         return list.get(0).split("#")[1];
     }
     
+    //return hit fragment
+    public String getHitFNumber(){
+        return list.get(1).split("#")[1];
+    }
     
+    //return total fragment
+    public String getTotalFNumber(){
+        return list.get(1).split("#")[0];
+    }
+
+
+    public Map<String,Integer> getMapInfo(){
+        return this.info;
+    }
+    
+    public List<String> getList(){
+        return list;
+    }
 }

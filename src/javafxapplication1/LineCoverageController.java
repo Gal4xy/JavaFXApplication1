@@ -8,8 +8,6 @@ package javafxapplication1;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import java.util.ArrayList;
 import java.io.*;
@@ -19,14 +17,14 @@ import javafx.scene.text.*;
 import javafx.scene.control.ProgressBar;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.application.Application;
+
 /**
  * FXML Controller class
  *
  * @author Galaxy Yang
  */
-public class HelloFXController implements Initializable {
-
+public class LineCoverageController implements Initializable {
+      private Coverage application;
       private static String filepath="C:\\\\Users\\\\Galaxy Yang\\\\Desktop\\\\WHETS.objcov";
       private  ArrayList<String> a;
      
@@ -50,8 +48,10 @@ public class HelloFXController implements Initializable {
     @FXML 
     private ProgressBar p_c;
     
-    private JavaFXApplication1 application;
-    
+   
+    public void setApp(Coverage application){
+        this.application=application;
+    }
       /**
      * Initializes the controller class.
      */
@@ -74,38 +74,10 @@ public class HelloFXController implements Initializable {
     
     
     @FXML 
-    protected void handleSubmitButtonAction(ActionEvent event)throws IOException {
-        System.out.println("handleAction Completed");
-        this.getContext();
-        
-     if(a.isEmpty()==false){
-        
-         double s1=Double.parseDouble(a.get(1));
-         double s2=Double.parseDouble(a.get(0));
-         double s3=Double.parseDouble(a.get(3));
-         double s4=Double.parseDouble(a.get(2));
-         
-         double p1=s1/s2;
-         double p2=s3/s4;
-         
-         System.out.println("1ST"+p1+"2nd"+p2+""+s1+""+s2+""+s3+""+s4);
-         
-      ins_c.setText(a.get(0));
-       ins_r.setText(a.get(1));
-       cov_c.setText(a.get(2));
-       cov_r.setText(a.get(3));
-      p_i.setProgress(p1);
-      p_c.setProgress(p2);
-        C_i.setText(p1+"");
-        C_c.setText(p2+"");
-                      
-        this.insertContext();
-     
-     }
-     else{
-         ins_c.setText("Sry Error");
-     }
-     
+    protected void handleReturnButtonAction(ActionEvent event) {
+       if(application!=null){
+           application.gotomain();
+       }
     }
     
     // read
@@ -141,8 +113,5 @@ public class HelloFXController implements Initializable {
         
     }
    
-    public void setApp(JavaFXApplication1 application){
-        this.application=application;
-    }
-
+  
 }

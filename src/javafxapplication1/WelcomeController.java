@@ -5,8 +5,11 @@
  */
 package javafxapplication1;
 
+
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -16,6 +19,12 @@ import javafx.fxml.Initializable;
  */
 public class WelcomeController implements Initializable {
 
+    private Coverage application;
+    
+     public void setApp(Coverage application){
+        this.application=application;
+    }
+    
     /**
      * Initializes the controller class.
      */
@@ -24,4 +33,25 @@ public class WelcomeController implements Initializable {
         // TODO
     }    
     
+    
+       @FXML 
+    protected void handleStartButtonAction(ActionEvent event) {
+       System.out.println("button is clicked");
+       if(application==null){
+           System.out.println("Errror_applicationNull");
+       }
+       else{
+       application.gotoIndex();}
+    }
+    
+   
+        @FXML 
+    protected void handleStartsrcButtonAction(ActionEvent event) {
+       System.out.println("button is clicked");
+       if(application==null){
+           System.out.println("Errror_applicationNull");
+       }
+       else{
+       application.gotoIndexSrc();}
+    }
 }

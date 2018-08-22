@@ -25,7 +25,8 @@ import javafx.fxml.Initializable;
  */
 public class LineCoverageController implements Initializable {
       private Coverage application;
-      private static String filepath="C:\\\\Users\\\\Galaxy Yang\\\\Desktop\\\\WHETS.objcov";
+      //private static String filepath="C:\\\\Users\\\\Galaxy Yang\\\\Desktop\\\\WHETS.objcov";
+      private String filepath="";
       private  ArrayList<String> a;
      
   
@@ -61,8 +62,12 @@ public class LineCoverageController implements Initializable {
           a=new ArrayList<String>();
          
           try{
+            WelcomeController wc=new WelcomeController();
+           this.filepath=wc.getList().get(3);
           getContext();
-          this.insertContext();}
+          this.insertContext();
+         
+          }
           catch(Exception e)
           {
               e.printStackTrace();

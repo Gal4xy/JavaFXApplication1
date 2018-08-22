@@ -24,8 +24,9 @@ import javafx.stage.Stage;
  */
 public class IndexsrcController implements Initializable {
 
-   private static String filepath="C:\\\\Users\\\\Galaxy Yang\\\\Desktop\\\\WHETS.srccov";
-   
+  // private static String filepath="C:\\\\Users\\\\Galaxy Yang\\\\Desktop\\\\WHETS.srccov";
+   private String filepath="";
+   private String ProjName="";
     @FXML 
     private TextField testName;
     @FXML 
@@ -78,6 +79,9 @@ public class IndexsrcController implements Initializable {
         StaticData sd=new StaticData();
       try{  
       //read
+      WelcomeController wc=new WelcomeController();
+             this.filepath=wc.getList().get(2);
+             this.ProjName=wc.getList().get(4);
         sd.getContext(filepath);
         
          sd.calculate();
@@ -107,12 +111,12 @@ public class IndexsrcController implements Initializable {
               dateT.setText(sd.getDate());
               hitLine.setText(sd.getHitLineNumer());
               totalLine.setText(sd.getTotalLineNumber());
-              hitf.setText(sd.getHitFNumber());
-              totalf.setText(sd.getTotalFNumber());
+              totalf.setText(sd.getHitFNumber());
+              hitf.setText(sd.getTotalFNumber());
               coverageL.setText(sd.getProgressLineStr());
               coveragef.setText(sd.getProgressfStr());
               testName.setText("002");
-              fileName.setText("whels.src");
+              fileName.setText(this.ProjName);
               
          
         XYChart.Series series1 = new XYChart.Series();

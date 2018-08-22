@@ -31,8 +31,10 @@ public class LineCoverageSrcController implements Initializable {
 
     
       private Coverage application;
-      private static String filepath="C:\\\\Users\\\\Galaxy Yang\\\\Desktop\\\\1.txt";
-      private static String filepathSrc="C:\\\\Users\\\\Galaxy Yang\\\\Desktop\\\\WHETS.C";
+    // private static String filepath="C:\\Users\\Galaxy Yang\\Desktop\\WHETS.srccov";
+    //  private static String filepathSrc="C:\\Users\\Galaxy Yang\\Desktop\\WHETS.C";
+      private String filepath="";
+      private String filepathSrc="";
       private  List<String> list;
       private Map<String,Integer> info;
   
@@ -58,6 +60,10 @@ public class LineCoverageSrcController implements Initializable {
         
         
           try{
+               WelcomeController wc=new WelcomeController();
+             this.filepath=wc.getList().get(2);
+              this.filepathSrc=wc.getList().get(1);
+              
           sd.getContext(filepath);
                 if(sd.getMapInfo()!=null){
                     info=sd.getMapInfo();
@@ -86,13 +92,16 @@ public class LineCoverageSrcController implements Initializable {
         
         if(list.isEmpty()==false){
            for(int i=0;i<list.size();i++){
-              String str=list.get(i);
-              String num=""+i;
+              String str=i+"  "+list.get(i);
+              String num=""+(i+1);
                Text t=new Text(str);
                    if(info.get(num)!=null&&info.get(num)==1){
                        System.out.println(" Line "+i+" is "+info.get(num));
                               t.setFill(Color.GREEN);}
-                         else{t.setFill(Color.GREY);}
+                else  if(list.get(i).contains("/")){
+                        t.setFill(Color.GREY);
+                   }
+                         else{t.setFill(Color.RED);}
                VBox.getChildren().add(t);}
            }            
        

@@ -31,8 +31,15 @@ import javafx.scene.chart.XYChart;
  */
 public class IndexController implements Initializable {
 
-     private static final String filepath="C:\\\\Users\\\\Galaxy Yang\\\\Desktop\\\\WHETS.objcov";
-    
+    // private  String filepath="C:\\\\Users\\\\Galaxy Yang\\\\Desktop\\\\WHETS.objcov";
+     private  String filepath="";
+     private String ProjName="";
+     
+     public IndexController(){
+       
+         
+     }
+     
      @FXML 
     private TextField testName;
     @FXML 
@@ -83,11 +90,17 @@ public class IndexController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         try{
+              
+             WelcomeController wc=new WelcomeController();
+             this.filepath=wc.getList().get(3);
+             this.ProjName=wc.getList().get(4);
              StaticData sd=new StaticData();
              sd.getContext(filepath);
              sd.calculate();
+           
              
-              linebar.setStyle("-fx-fill:red");
+             
+              
              
              //colour 
              if(sd.getProgressLine()!=1){
@@ -112,12 +125,12 @@ public class IndexController implements Initializable {
               dateT.setText(sd.getDate());
               hitLine.setText(sd.getHitLineNumer());
               totalLine.setText(sd.getTotalLineNumber());
-              hitf.setText(sd.getHitFNumber());
-              totalf.setText(sd.getTotalFNumber());
+              totalf.setText(sd.getHitFNumber());
+              hitf.setText(sd.getTotalFNumber());
               coverageL.setText(sd.getProgressLineStr());
               coveragef.setText(sd.getProgressfStr());
               testName.setText("001");
-              fileName.setText("whels.obj");
+              fileName.setText(this.ProjName);
               
          
         XYChart.Series series1 = new XYChart.Series();

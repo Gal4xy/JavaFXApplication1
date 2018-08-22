@@ -8,41 +8,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="480.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.LineCoverageSrcController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.LineCoverageSrcController">
     <stylesheets>
         <URL value="@hellofx.css" />
     </stylesheets>
    <children>
-      <ScrollPane layoutX="14.0" layoutY="101.0" prefHeight="561.0" prefWidth="765.0" vbarPolicy="ALWAYS">
+      <ScrollPane layoutX="14.0" layoutY="20.0" prefHeight="386.0" prefWidth="765.0" vbarPolicy="ALWAYS">
          <content>
-            <VBox fx:id="VBox" prefHeight="552.0" prefWidth="736.0" style="-fx-background-color: white;" />
+            <VBox fx:id="VBox" prefHeight="380.0" prefWidth="736.0" style="-fx-background-color: white;" />
          </content>
       </ScrollPane>
-      <Label layoutX="31.0" layoutY="56.0" text="程序计数器" textFill="#0d0d0d">
+      <Label layoutX="154.0" layoutY="56.0" textFill="#0d0d0d">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="154.0" layoutY="56.0" text="指令集代码" textFill="#0d0d0d">
-         <font>
-            <Font name="System Italic" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="279.0" layoutY="56.0" text="运行次数" textFill="#0d0d0d">
-         <font>
-            <Font name="System Italic" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="373.0" layoutY="56.0" text="是否是分支" textFill="#0d0d0d">
-         <font>
-            <Font name="System Italic" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="501.0" layoutY="56.0" text="汇编代码" textFill="#0d0d0d">
-         <font>
-            <Font name="System Italic" size="20.0" />
-         </font>
-      </Label>
-      <Button fx:id="Button_return" layoutX="689.0" layoutY="53.0" mnemonicParsing="false" onAction="#handleReturnButtonAction" text="返回" />
+      <Button fx:id="Button_return" layoutX="685.0" layoutY="421.0" mnemonicParsing="false" onAction="#handleReturnButtonAction" text="返回" />
    </children>
 </AnchorPane>

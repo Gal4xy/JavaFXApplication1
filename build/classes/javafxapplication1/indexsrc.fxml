@@ -58,7 +58,7 @@
             <TextField fx:id="pf" layoutX="615.0" layoutY="44.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="56.0" />
          </children>
       </AnchorPane>
-      <Label layoutX="315.0" layoutY="21.0" prefHeight="33.0" prefWidth="355.0" text="覆盖率分析报告">
+      <Label layoutX="271.0" layoutY="21.0" prefHeight="33.0" prefWidth="355.0" text="源代码覆盖率分析报告">
          <font>
             <Font size="20.0" />
          </font>
@@ -73,7 +73,7 @@
             <Font size="16.0" />
          </font></Label>
       <TextField fx:id="dateT" layoutX="116.0" layoutY="131.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="117.0" />
-      <Label layoutX="368.0" layoutY="108.0" text="指令覆盖率：">
+      <Label layoutX="368.0" layoutY="108.0" text="语句覆盖率：">
          <font>
             <Font size="16.0" />
          </font></Label>
@@ -81,17 +81,17 @@
          <font>
             <Font size="16.0" />
          </font></Label>
-      <Label layoutX="464.0" layoutY="77.0" text="指令行数">
+      <Label layoutX="464.0" layoutY="77.0" text="覆盖行数">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="540.0" layoutY="77.0" text="运行行数">
+      <Label layoutX="547.0" layoutY="77.0" text="总行数">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="619.0" layoutY="77.0" text="语句覆盖率">
+      <Label layoutX="633.0" layoutY="77.0" text="覆盖率">
          <font>
             <Font size="14.0" />
          </font>

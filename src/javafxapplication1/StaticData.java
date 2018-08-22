@@ -70,7 +70,7 @@ public class StaticData {
        while((s=br.readLine())!=null){
            list.add(s);
             if(s.length()>5){
-               if(s.charAt(2)=='*'){
+               if(s.contains("*")){
                      System.out.println("SUCCESS-SPLIT");
                    String[] infos=s.split("\\*");
                            if(infos!=null){
@@ -152,5 +152,11 @@ public class StaticData {
     
     public List<String> getList(){
         return list;
+    }
+    
+    public String getFilePath(){
+        String filePath=null;
+        
+        return filePath;
     }
 }

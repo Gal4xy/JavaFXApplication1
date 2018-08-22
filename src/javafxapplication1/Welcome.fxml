@@ -8,24 +8,35 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.WelcomeController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.WelcomeController">
    <children>
-      <ImageView fitHeight="235.0" fitWidth="351.0" layoutX="150.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="235.0" fitWidth="351.0" layoutX="56.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@./timg.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="button_start" layoutX="260.0" layoutY="392.0" mnemonicParsing="false" onAction="#handleStartButtonAction" text="开始" />
-      <Button fx:id="button_src" layoutX="340.0" layoutY="392.0" mnemonicParsing="false" onAction="#handleStartsrcButtonAction" text="帮助" />
+      <Button fx:id="button_start" layoutX="555.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleStartButtonAction" text="目标码报告" />
+      <Button fx:id="button_src" layoutX="395.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleStartsrcButtonAction" text="源代码报告" />
       <ImageView fitHeight="77.0" fitWidth="137.0" layoutX="622.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@./logozr.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="55.0" fitWidth="200.0" layoutX="490.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="55.0" fitWidth="200.0" layoutX="123.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@./font1.png" />
          </image>
       </ImageView>
+      <TextField fx:id="srcField" layoutX="506.0" layoutY="152.0" prefHeight="36.0" prefWidth="189.0" />
+      <Label layoutX="357.0" layoutY="152.0" prefHeight="36.0" prefWidth="122.0" text="项目源代码：" />
+      <Label layoutX="357.0" layoutY="240.0" prefHeight="36.0" prefWidth="149.0" text="目标代码文件：" />
+      <Label layoutX="357.0" layoutY="195.0" prefHeight="36.0" prefWidth="137.0" text="源代码文件：" />
+      <TextField fx:id="srccovField" layoutX="506.0" layoutY="195.0" prefHeight="36.0" prefWidth="189.0" />
+      <TextField fx:id="objcovField" layoutX="506.0" layoutY="240.0" prefHeight="36.0" prefWidth="189.0" />
+      <Button fx:id="srccovPath" layoutX="709.0" layoutY="195.0" mnemonicParsing="false" onAction="#handleSrcCovPathButtonAction" text="..." />
+      <Button fx:id="objcovPath" layoutX="709.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleObjCovButtonAction" text="..." />
+      <Button fx:id="srcPath" layoutX="709.0" layoutY="152.0" mnemonicParsing="false" onAction="#handleSrcPathButtonAction" text="..." />
+      <Label layoutX="357.0" layoutY="109.0" prefHeight="36.0" prefWidth="122.0" text="项目：" />
+      <TextField fx:id="prjField" layoutX="506.0" layoutY="109.0" prefHeight="36.0" prefWidth="189.0" />
    </children>
 </AnchorPane>

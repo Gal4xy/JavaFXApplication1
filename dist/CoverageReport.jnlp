@@ -8,11 +8,11 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="CoverageReport.jar" size="203985" download="eager" />
+    <jar href="CoverageReport.jar" size="210221" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="CoverageReport" >
     <param name="requiredFXVersion" value="8.0+"/>
   </applet-desc>
-  <jfx:javafx-desc  width="800" height="600" main-class="javafxapplication1.Coverage"  name="CoverageReport" />
+  <jfx:javafx-desc  width="800" height="600" main-class="coverage.main.Coverage"  name="CoverageReport" />
   <update check="always"/>
 </jnlp>

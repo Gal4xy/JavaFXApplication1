@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coverage.obj.LineCoverageController">
+   <!--   
+    <stylesheets>
+        <URL value="@hellofx.css" />
+    </stylesheets>-->
+   <children>
+      <ScrollPane layoutX="18.0" layoutY="27.0" prefHeight="393.0" prefWidth="765.0" vbarPolicy="ALWAYS">
+         <content>
+            <VBox fx:id="VBox" prefHeight="373.0" prefWidth="736.0" style="-fx-background-color: white;" />
+         </content>
+      </ScrollPane>
+      <Button fx:id="Button_return" layoutX="711.0" layoutY="427.0" mnemonicParsing="false" onAction="#handleReturnButtonAction" text="返回" />
+   </children>
+</AnchorPane>

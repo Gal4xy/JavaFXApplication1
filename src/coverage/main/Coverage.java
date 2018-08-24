@@ -11,8 +11,9 @@ package coverage.main;
  *
  * @author Galaxy Yang
  */
-import coverage.obj.IndexController;
-import coverage.src.IndexsrcController;
+//import coverage.obj.IndexController;
+//import coverage.src.IndexsrcController;
+import coverage.src.SrcTableViewController;
 import coverage.obj.LineCoverageController;
 import coverage.src.LineCoverageSrcController;
 import coverage.sum.TableViewController;
@@ -76,12 +77,12 @@ public class Coverage extends Application {
       //go to Index
       public void gotoIndex(){
       try {  
-            IndexController in= (IndexController) replaceSceneContent("index.fxml");  
-            if(in==null){
+            SrcTableViewController s= (SrcTableViewController) replaceSceneContent("SrcTableView.fxml");  
+            if(s==null){
               System.out.println("Error_indexC NULL");
             }
             else{
-                in.setApp(this);
+                s.setApp(this);
             }  
         } catch (Exception ex) {  
             Logger.getLogger(Coverage.class.getName()).log(Level.SEVERE, null, ex);  
@@ -143,7 +144,7 @@ private Initializable replaceSceneContent(String fxml) throws Exception {
         } finally {  
             inFxml.close();  
         }   
-        Scene scene = new Scene(page,800,480);  
+        Scene scene = new Scene(page,800,600);  
         stage.setScene(scene);  
         stage.sizeToScene();  
         return (Initializable) loader.getController();  

@@ -8,7 +8,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="534.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coverage.sum.TableViewController">
    <children>
-      <TableView fx:id="table" layoutX="34.0" layoutY="40.0" prefHeight="190.0" prefWidth="704.0">
+      <TableView fx:id="table" layoutX="34.0" layoutY="40.0" prefHeight="419.0" prefWidth="704.0">
         <columns>
           <TableColumn fx:id="check" editable="false" prefWidth="54.0" text="选择" />
           <TableColumn fx:id="index" editable="false" prefWidth="52.0" text="序号" />
@@ -19,10 +19,6 @@
         </columns>
       </TableView>
       <Button fx:id="button_sum" layoutX="612.0" layoutY="484.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="153.0" text="累计覆盖率生成" />
-      <AnchorPane layoutX="34.0" layoutY="250.0" prefHeight="200.0" prefWidth="704.0">
-         <children>
-            <TextField fx:id="tf" layoutX="128.0" layoutY="64.0" />
-         </children>
-      </AnchorPane>
+      <Button fx:id="button_return" layoutX="532.0" layoutY="484.0" mnemonicParsing="false" onAction="#handleReturnButtonAction" prefHeight="36.0" prefWidth="50.0" text="返回" />
    </children>
 </AnchorPane>

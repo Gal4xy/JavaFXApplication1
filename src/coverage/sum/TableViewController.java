@@ -13,6 +13,7 @@ import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.TableColumn;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.ProgressBarTableCell;
@@ -49,8 +50,6 @@ public class TableViewController implements Initializable {
     @FXML 
     private TableColumn cov;
     
-    @FXML 
-    private TextField tf;
     
  /*   
    private TableColumn cov_synax;
@@ -82,9 +81,9 @@ public class TableViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         this.setColumns();
-        tf.setText("Hello World");
         table.setItems(data);
         table.getColumns().addAll(check,index,date,name,cov);
+       /*
         table.setOnMouseClicked(new EventHandler<Event>(){
             public void handle(Event e){
                 TableViewSelectionModel<FileBean> selectionModel=table.selectionModelProperty().get();
@@ -93,12 +92,14 @@ public class TableViewController implements Initializable {
                         return;
                     }
                     else{
-                         tf.setText(fileBean.getPer());
+                        
                     }
             }
             
         });
-    }    
+    
+  */
+     }    
     
      public void setApp(Coverage application){
         this.application=application;
@@ -129,5 +130,10 @@ public class TableViewController implements Initializable {
         new PropertyValueFactory<>("per"));
      }
      
-     
+       @FXML 
+    protected void handleReturnButtonAction(ActionEvent event) {
+       if(application!=null){
+           application.gotomain();
+       }
+    }
 }

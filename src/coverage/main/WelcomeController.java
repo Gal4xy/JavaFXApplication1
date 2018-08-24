@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
+
 
 /**
  * FXML Controller class
@@ -29,14 +29,7 @@ public class WelcomeController implements Initializable {
      private List<String> list;
      private static final String filepath="C:\\\\Path\\\\Path.txt";
      
-    @FXML 
-    private TextField srcField;
-     @FXML 
-    private TextField srccovField;
-    @FXML 
-    private TextField objcovField;
-    @FXML 
-    private TextField prjField;
+  
     
     
      public WelcomeController() throws IOException{
@@ -68,14 +61,7 @@ public class WelcomeController implements Initializable {
             e.printStackTrace();
         }
        */
-        if(!list.isEmpty()){
-        this.srcField.setText(list.get(1));
-        this.srccovField.setText(list.get(2));
-        this.objcovField.setText(list.get(3));
-        this.prjField.setText(list.get(0));}
-     
-    }    
-    
+    }
     
        @FXML 
     protected void handleStartButtonAction(ActionEvent event) {

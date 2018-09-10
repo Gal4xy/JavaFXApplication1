@@ -7,6 +7,7 @@ package coverage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
@@ -38,6 +39,15 @@ public class StaticData {
     public double getProgressLine(){
         Double dou=(double)Math.round(progressLine*100)/100;
         return dou;
+    }
+    
+    
+    
+    public static String getPercent(Double per){
+        NumberFormat nf=NumberFormat.getPercentInstance();
+        nf.setMaximumFractionDigits(1);
+        String s=nf.format(per);
+         return  s;
     }
     
     public String getProgressLineStr(){
@@ -83,10 +93,12 @@ public class StaticData {
             }
            } 
         System.out.println(" SIZE "+list.size()+" MAP "+info.keySet().size());
+        br.close();
      }
      else{
            System.out.println("Error_listEmpty");
      }
+       
     }
     
     //calculator 
@@ -116,8 +128,12 @@ public class StaticData {
         
     }
     
-    //read date
-    public String getDate(){
+    /**
+     * 20180829 10:27
+     * 获取当前日期
+     * @return  String date
+     */
+    public static String getDate(){
         Date d = new Date();  
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");  
         String dateNowStr = sdf.format(d);  
@@ -159,4 +175,47 @@ public class StaticData {
         
         return filePath;
     }
+
+     public static BufferedReader readDocFile(String filepath)throws IOException{
+         File file=new File(filepath);
+         BufferedReader br=new BufferedReader(new FileReader(file));
+         return br;
+     }
+     
+     /**
+      * 20180828 19:10
+      * 作为UTIL类提供公共复用
+      * @param content
+     * @param file
+      * @throws IOException 
+      */
+     public static void outputContent(String content,File file)throws IOException{
+         if(!file.exists()){
+             file.createNewFile();
+         }
+         FileWriter fw=new FileWriter(file,true);
+         fw.write(content);
+         fw.write("\r\n");
+         fw.flush();
+         fw.close();
+         file.deleteOnExit();
+     }
+     
+     
+     
+     /**
+      * 20180829 10:53
+      * 用两个整型获得双浮点百分比
+      * @param total
+      * @param part
+      * @return percent
+      */
+     
+     public static Double calculatePer(int total,int part){
+         
+         double res=(double)part/total;
+         Double result=(double)Math.round(res*100)/100;
+         return result;
+     }
+   
 }

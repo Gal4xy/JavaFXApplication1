@@ -65,7 +65,7 @@ public class LineCoverageController implements Initializable {
          
           try{
             WelcomeController wc=new WelcomeController();
-           this.filepath=wc.getList().get(3);
+           //this.filepath=wc.getList().get(3);
           getContext();
           this.insertContext();
          

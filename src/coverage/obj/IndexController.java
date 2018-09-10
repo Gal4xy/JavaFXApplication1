@@ -91,8 +91,8 @@ public class IndexController implements Initializable {
         try{
               
              WelcomeController wc=new WelcomeController();
-             this.filepath=wc.getList().get(3);
-             this.ProjName=wc.getList().get(4);
+           //  this.filepath=wc.getList().get(3);
+           //  this.ProjName=wc.getList().get(4);
              StaticData sd=new StaticData();
              sd.getContext(filepath);
              sd.calculate();
@@ -129,7 +129,7 @@ public class IndexController implements Initializable {
               coverageL.setText(sd.getProgressLineStr());
               coveragef.setText(sd.getProgressfStr());
               testName.setText("001");
-              fileName.setText(this.ProjName);
+             // fileName.setText(this.ProjName);
               
          
         XYChart.Series series1 = new XYChart.Series();

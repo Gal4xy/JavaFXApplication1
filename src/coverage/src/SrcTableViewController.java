@@ -5,6 +5,9 @@
  */
 package coverage.src;
 
+import coverage.BeanFactory;
+import coverage.CovConstants;
+import coverage.StaticData;
 import coverage.main.Coverage;
 import coverage.sum.FileBean;
 import java.net.URL;
@@ -24,6 +27,10 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
+import java.io.File;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
 
 /**
  * FXML Controller class
@@ -77,20 +84,19 @@ public class SrcTableViewController implements Initializable {
     private Coverage application;
     private final String c="运行";
     private final String uc="未运行";
-    
+    private String init_path="null";
     
      public SrcTableViewController(){
      
-      // cov.getColumns().addAll(cov_synax,cov_fragment);
-        
-      data=FXCollections.observableArrayList(
-        new SrcBean("WHET.C","WHETS",00.47,"47%",00.57,"57%",149,315,56,98),
-        new SrcBean("TIME.C","WHETS",00.40,"40%",00.00,"0%",14,35,0,0),
-        new SrcBean("a.C","WHETS",00.25,"25%",00.61,"61%",14,35,0,0),
-        new SrcBean("b.C","WHETS",00.34,"34%",00.10,"10%",14,35,0,0)
-      );
+      init_path=CovConstants.init_src_path;
       
-       
+      data=FXCollections.observableArrayList();
+        
+      try{
+          this.getContext(init_path);
+         }
+         catch(IOException e){
+         }
     }
      
      /**
@@ -185,6 +191,23 @@ public class SrcTableViewController implements Initializable {
         
     }
     
+    /**
+       @ 20170827 17:14
+       读取srcpath文档 提取数据 灌装数据入data集合
+    */
+     public void getContext(String filePath) throws IOException{
+         BufferedReader br=StaticData.readDocFile(filePath);
+           String s;
+         while((s=br.readLine())!=null){
+              String[] args=s.split("#");
+                if(args!=null){
+                 data.add(BeanFactory.getSrcBeanInstance(s.split("#")));}
+                else{
+                    System.out.println("CHECK_208_REGEX_NULL");
+                }
+           }
+            br.close();
+     }
 }
 
 

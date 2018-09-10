@@ -3,7 +3,12 @@
  */
 package coverage.sum;
 
+import coverage.BeanFactory;
+import coverage.CovConstants;
+import coverage.StaticData;
 import coverage.main.Coverage;
+import java.io.BufferedReader;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -20,6 +25,7 @@ import javafx.scene.control.cell.ProgressBarTableCell;
 import javafx.scene.control.TextField;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import java.io.IOException;
 
 /**
  * FXML Controller class
@@ -57,20 +63,30 @@ public class TableViewController implements Initializable {
     */
     private final ObservableList<FileBean> data;
     private Coverage application;
+    private String filePath="";
    
     public TableViewController(){
      
       // cov.getColumns().addAll(cov_synax,cov_fragment);
+       /* 
+       data=FXCollections.observableArrayList();
         
+        */
+       
+     
+      
       data=FXCollections.observableArrayList(
-         new FileBean(true,1,"2018-08-23 18:06","WHETS",00.23,"23%"),
-         new FileBean(false,2,"2018-08-23 18:08","WHETS",00.56,"56%"),
-         new FileBean(false,3,"2018-08-23 19:27","WHETS",00.77,"77%"),
-         new FileBean(false,4,"2018-08-23 19:45","WHETS",00.49,"49%"),
-         new FileBean(false,5,"2018-08-23 19:57","WHETS",00.80,"80%"),
-         new FileBean(false,6,"2018-08-23 20:02","WHETS",00.12,"12%")
       );
       
+        String PrjName=CovConstants.PrjName;
+        filePath=this.getFilePath(PrjName);
+        System.out.println("CHECK_89_FILEPATH "+filePath);
+        
+       try{
+          this.getContext(filePath);
+         }
+         catch(IOException e){
+         }
        
     }
     
@@ -80,6 +96,7 @@ public class TableViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+      
         this.setColumns();
         table.setItems(data);
         table.getColumns().addAll(check,index,date,name,cov);
@@ -136,4 +153,55 @@ public class TableViewController implements Initializable {
            application.gotomain();
        }
     }
-}
+    
+    @FXML 
+    protected void handleStartButtonAction(ActionEvent event) throws IOException{
+       String filePath="C:\\Program Files\\Notepad++\\notepad++.exe";
+       Runtime rt=Runtime.getRuntime();
+       rt.exec(filePath);
+    }
+    
+    
+    /**
+     * 20180829 14:16  
+     *  数据注入
+     * @param filePath
+     * @throws IOException 
+     */
+    
+  
+     public void getContext(String filePath) throws IOException{
+         BufferedReader br=StaticData.readDocFile(filePath);
+           String s;
+         while((s=br.readLine())!=null){
+             if(s.contains("#")){
+              String[] args=s.split("#");
+                if(args!=null){
+                data.add(BeanFactory.getFileBeanInstance(s.split("#")));}
+                else{
+                    System.out.println("CHECK_208_REGEX_NULL");
+                }
+             }
+           }
+            br.close();
+     }    
+     
+     /**
+      * 20180829 14:34 合成sumlist的地址
+      * 
+      * @param PrjName
+      * @return 
+      */
+     
+      public String getFilePath(String PrjName){
+        
+          /**
+           * 20180829
+         
+          String destDir=System.getProperty("user.home")+File.separator+"IDE_WORKSPACE"
+                 +File.separator+PrjName+File.separator+"log.txt";  */
+          String destDir="C:\\Path\\log.txt";
+          
+         return destDir;
+     }
+   }

@@ -18,7 +18,7 @@
             <TableColumn fx:id="per" editable="false" prefWidth="126.0" text="百分比" />
         </columns>
       </TableView>
-      <Button fx:id="button_sum" layoutX="612.0" layoutY="484.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="153.0" text="累计覆盖率生成" />
+      <Button fx:id="button_sum" layoutX="612.0" layoutY="484.0" mnemonicParsing="false" onAction="#handleStartButtonAction" prefHeight="36.0" prefWidth="153.0" text="累计覆盖率生成" />
       <Button fx:id="button_return" layoutX="532.0" layoutY="484.0" mnemonicParsing="false" onAction="#handleReturnButtonAction" prefHeight="36.0" prefWidth="50.0" text="返回" />
    </children>
 </AnchorPane>
